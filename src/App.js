@@ -15,9 +15,11 @@ export const ACTIONS = {
   PARENTHESES: 'parentheses'
 }
 
+//loops through the expression and checks if the parentheses are valid
 function validParentheses(expression) {
   var array = [];
   var newExpression = "";
+  //converts the expression to have only parentheses
   for (let i = 0; i < expression.length; i++) {
     if (expression[i] === "(" || expression[i] === ")") { 
       newExpression += expression[i];
@@ -29,6 +31,7 @@ function validParentheses(expression) {
   array[0] = newExpression[0];
   console.log(newExpression);
   var j = 0;
+  //have two arrays that we loop over to push/pop the number and position of opening and closing brackets
   for (let i = 1; i < newExpression.length; i++) {
     if (newExpression[i] === ')' && array[j] === '(') {
       array[j] = '0';
@@ -48,7 +51,7 @@ function validParentheses(expression) {
   }
   return false;
 }
-
+//helper function to replace specific characters in expression
 function evaluate(expression) {
   expression = expression.replaceAll('×', '*'); 
   expression = expression.replaceAll('−', '-');
@@ -62,6 +65,8 @@ function calculate(index, expression) {
   var stack = [];
   var sign = "+";
   var signArray = ['+', '-', '/', '*'];
+
+  //pushes the value of the operand(s) onto the array based on what operation is passed
   function pushStack(op, val) {
     if (op === "+") {
       stack.push(val);
@@ -84,7 +89,11 @@ function calculate(index, expression) {
       }
     }
   }
+
+  //loop through the whole expression
   while (index < expression.length) {
+
+    //turning a string to decimal number
     if ((expression[index] >= '0' && expression[index] <= '9') || expression[index] === '.') {
       let temp = "";
       while (index < expression.length && ((expression[index] >= '0' && expression[index] <= '9') || expression[index] === '.')) {
@@ -95,6 +104,7 @@ function calculate(index, expression) {
       ans = parseFloat(temp);
     }
     
+    //pushing/calculating the value if the char is an operation
     else if (signArray.includes(expression.charAt(index))) {
       pushStack(sign, ans);
       ans = 0;
@@ -115,6 +125,7 @@ function calculate(index, expression) {
 }
 
 function reducer(state, {type, payload}) {
+  //case statement to determine the current strings to display
   switch(type) {
     case ACTIONS.ADD_DIGIT:
       if (payload.digit === "0" && state.currentString === "0") {
