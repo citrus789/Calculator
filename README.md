@@ -1,3 +1,23 @@
+# Basic calculator app
+
+Done:
+- add
+- subtract
+- divide
+- multiply
+- parentheses
+- equals
+
+In progress:
+- clear
+- backspace
+- trig
+- ln/e
+- sqrt
+- exponent
+- pi
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
