@@ -7,10 +7,10 @@ Done:
 - multiply
 - parentheses
 - equals
-
-In progress:
 - clear
 - backspace
+
+In progress:
 - trig
 - ln/e
 - sqrt

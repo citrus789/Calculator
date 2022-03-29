@@ -1,6 +1,6 @@
-import { ACTIONS } from './App'
+import { ACTIONS } from './functions'
 
-export default function DigitButton({ dispatch, operation }) {
+export default function OperationButton({ dispatch, operation }) {
     return (
         <button 
             onClick = {() => dispatch({ type: ACTIONS.OPERATION, payload: { operation }})}

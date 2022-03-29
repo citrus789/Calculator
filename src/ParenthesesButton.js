@@ -1,6 +1,6 @@
-import { ACTIONS } from './App'
+import { ACTIONS } from './functions'
 
-export default function DigitButton({ dispatch, parentheses }) {
+export default function ParenthesesButton({ dispatch, parentheses }) {
     return (
         <button 
             onClick = {() => dispatch({ type: ACTIONS.PARENTHESES, payload: { parentheses }})}
